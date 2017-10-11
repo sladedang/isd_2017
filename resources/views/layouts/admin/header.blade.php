@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="{!! action('Admin\IndexController@index') !!}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">{{ config('site.name') }}</span>
+        <span class="logo-mini">Online Humane Resource Software</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">{{ config('site.name') }}</span>
+        <span class="logo-lg">OHRS</span>
     </a>
 
     <!-- Header Navbar -->
@@ -60,10 +60,10 @@
                 <!-- Notifications Menu -->
                 <li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">{{ $unreadNotificationCount }}</span>
-                    </a>
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                        {{--<i class="fa fa-bell-o"></i>--}}
+                        {{--<span class="label label-warning">{{ $unreadNotificationCount }}</span>--}}
+                    {{--</a>--}}
                     <ul class="dropdown-menu">
                         <li class="header">You have {{ $unreadNotificationCount }} unread notifications</li>
                         <li>
@@ -167,9 +167,9 @@
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>--}}
+                {{--</li>--}}
             </ul>
         </div>
     </nav>

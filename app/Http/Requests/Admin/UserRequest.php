@@ -24,16 +24,19 @@ class UserRequest extends BaseRequest
     public function rules()
     {
         return [
-            'email' => 'email',
-            'password' => 'min:6',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:6'
         ];
     }
 
     public function messages()
     {
         return [
-            'email.email' => '',
-            'password.min' => '',
+            'name.required' => 'Please Fill User Name',
+            'email.required' => 'Please Fill User Email',
+            'password.required' => 'Please Fill User Password',
+            'password.min' => 'Please Fill At least 6 character for Password'
         ];
     }
 }

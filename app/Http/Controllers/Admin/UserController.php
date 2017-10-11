@@ -30,7 +30,7 @@ class UserController extends Controller
         $limit = $request->limit();
 
         $order = $request->order();
-        $direction = $request->direction('desc');
+        $direction = $request->direction('a');
 
         $users = $this->userRepository->get($order, $direction, $offset, $limit);
         $count = $this->userRepository->count();
@@ -60,13 +60,17 @@ class UserController extends Controller
 
     public function create()
     {
+        return view('pages.admin.users.create');
     }
 
     public function store(UserRequest $request)
     {
-        $model = $this->userRepository->create($request->all());
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $password = $request->get('password');
 
-        return redirect()->action('Admin\UserController@show', [$model->id])->with('message-success',
+        $this->userRepository->createNewUser($name, $email, $password);
+        return redirect()->action('Admin\UserController@index')->with('message-success',
             trans('admin.messages.general.create_success'));
     }
 

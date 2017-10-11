@@ -12,15 +12,14 @@ class UserRepository extends AuthenticatableRepository implements UserRepository
         return new User();
     }
 
-    public function rules()
+    public function createNewUser($name, $email, $password)
     {
-        return [
-        ];
-    }
+        $model = $this->getBlankModel();
+        $model->name = $name;
+        $model->email = $email;
+        $model->password = $password;
+        $model->save();
 
-    public function messages()
-    {
-        return [
-        ];
+        return true;
     }
 }
