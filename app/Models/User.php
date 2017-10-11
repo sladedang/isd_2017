@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\User.
@@ -37,8 +36,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class User extends AuthenticatableBase
 {
-    use SoftDeletes;
-
     /**
      * The database table used by the model.
      *
@@ -48,6 +45,7 @@ class User extends AuthenticatableBase
 
     protected $presenter = \App\Presenters\UserPresenter::class;
 
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -57,11 +55,11 @@ class User extends AuthenticatableBase
         'name',
         'email',
         'password',
-        'locale',
+        'dob',
         'remember_token',
-        'api_access_token',
-        'profile_image_id',
-        'last_notification_id',
+        'phone',
+        'gender',
+        'address',
     ];
 
     /**
@@ -69,24 +67,6 @@ class User extends AuthenticatableBase
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token', 'facebook_token'];
+    protected $hidden = ['password', 'remember_token'];
 
-    protected $dates = ['deleted_at'];
-
-    public function profileImage()
-    {
-        return $this->belongsTo(\App\Models\Image::class, 'profile_image_id', 'id');
-    }
-
-    /*
-     * API Presentation
-     */
-
-    public function toAPIArray()
-    {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-        ];
-    }
 }

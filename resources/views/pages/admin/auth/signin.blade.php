@@ -29,13 +29,11 @@ Sign In
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="{!! action('User\IndexController@index') !!}"><b>{{ config('site.name') }}</b> Admin</a>
+        <a href="{!! action('User\IndexController@index') !!}"><b>Online Human Resource Software</b> Admin</a>
     </div>
     <!-- /.login-logo -->
 
     <div class="login-box-body">
-        <p class="login-box-msg">@lang('admin.pages.auth.messages.please_sign_in')</p>
-
         <form action="{!! action('Admin\AuthController@postSignIn') !!}" method="post">
             {!! csrf_field() !!}
             <div class="form-group has-feedback">
@@ -47,13 +45,13 @@ Sign In
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="remember_me" value="1"> @lang('admin.pages.auth.messages.remember_me')
-                        </label>
-                    </div>
-                </div>
+                {{--<div class="col-xs-8">--}}
+                    {{--<div class="checkbox icheck">--}}
+                        {{--<label>--}}
+                            {{--<input type="checkbox" name="remember_me" value="1"> @lang('admin.pages.auth.messages.remember_me')--}}
+                        {{--</label>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <!-- /.col -->
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('admin.pages.auth.buttons.sign_in')</button>
@@ -61,7 +59,7 @@ Sign In
                 <!-- /.col -->
             </div>
         </form>
-        <a href="{!! action('Admin\PasswordController@getForgotPassword') !!}">@lang('admin.pages.auth.messages.forgot_password')</a><br>
+        {{--<a href="{!! action('Admin\PasswordController@getForgotPassword') !!}">@lang('admin.pages.auth.messages.forgot_password')</a><br>--}}
 
     </div>
     <!-- /.login-box-body -->

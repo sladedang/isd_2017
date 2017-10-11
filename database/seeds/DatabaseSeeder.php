@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('AdminUserTableSeeder');
-
+        $this->call('UserTableSeeder');
         if (App::environment() === 'testing') {
             // Add More Seed For Testing
         }
