@@ -30,7 +30,7 @@ class UserController extends Controller
         $limit = $request->limit();
 
         $order = $request->order();
-        $direction = $request->direction('a');
+        $direction = $request->direction('asc');
 
         $users = $this->userRepository->get($order, $direction, $offset, $limit);
         $count = $this->userRepository->count();
