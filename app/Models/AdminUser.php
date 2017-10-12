@@ -60,11 +60,7 @@ class AdminUser extends AuthenticatableBase
         'name',
         'email',
         'password',
-        'locale',
-        'remember_token',
-        'api_access_token',
-        'profile_image_id',
-        'last_notification_id',
+
     ];
 
     /**

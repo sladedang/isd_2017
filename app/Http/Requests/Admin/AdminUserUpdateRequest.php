@@ -24,16 +24,19 @@ class AdminUserUpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'email' => 'email',
-            'password' => 'min:6',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required| min:6',
         ];
     }
 
     public function messages()
     {
         return [
-            'email.email' => '',
-            'password.min' => '',
+            'email.required' => 'Please Fill Admin Email',
+            'name.required' => 'Please Fill Admin Name',
+            'password.required' => 'Please Fill Admin Password',
+            'password.min' => 'Please Fill At least 6 characters for Admin Password',
         ];
     }
 }
